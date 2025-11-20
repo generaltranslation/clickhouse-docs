@@ -1,4 +1,4 @@
-请参阅[官方文档](/interfaces/mysql)，了解如何配置并启用支持 MySQL 接口的 ClickHouse 服务器。
+请参阅[官方文档](/interfaces/mysql)，了解如何配置启用 MySQL 接口的 ClickHouse 服务器。
 
 除了在服务器的 `config.xml` 中添加一条配置项之外
 
@@ -8,25 +8,25 @@
 </clickhouse>
 ```
 
-您还*必须*为将使用 MySQL 接口的用户启用
+还*必须*为将使用 MySQL 接口的用户使用
 [Double SHA1 password encryption](/operations/settings/settings-users#user-namepassword)。
 
-在 shell 中生成一个使用 Double SHA1 加密的随机密码：
+在 shell 中生成使用 Double SHA1 加密的随机密码：
 
 ```shell
 PASSWORD=$(base64 < /dev/urandom | head -c16); echo "$PASSWORD"; echo -n "$PASSWORD" | sha1sum | tr -d '-' | xxd -r -p | sha1sum | tr -d '-'
 ```
 
-输出应类似于：
+输出结果应如下所示：
 
 ```
 LZOQYnqQN4L/T6L0
 fbc958cc745a82188a51f30de69eebfc67c40ee4
 ```
 
-第一行是生成的密码，第二行是我们可用于配置 ClickHouse 的哈希值。
+第一行是生成的密码，第二行是我们可以用来配置 ClickHouse 的哈希值。
 
-下面是一个 `mysql_user` 使用该哈希值的示例配置：
+下面是一个 `mysql_user` 使用生成的哈希值的示例配置：
 
 `/etc/clickhouse-server/users.d/mysql_user.xml`
 
@@ -43,10 +43,10 @@ fbc958cc745a82188a51f30de69eebfc67c40ee4
 </users>
 ```
 
-将 `password_double_sha1_hex` 条目替换为你自行生成的 Double SHA1 哈希值。
+将 `password_double_sha1_hex` 条目替换为你自己生成的 Double SHA1 哈希值。
 
 另外，建议启用 `use_mysql_types_in_show_columns`，
-以便在 `SHOW [FULL] COLUMNS` 查询结果中显示原生 MySQL 类型而非 ClickHouse 类型，
+以便在 `SHOW [FULL] COLUMNS` 查询结果中显示原生 MySQL 类型，而不是 ClickHouse 类型，
 从而在使用 MySQL 连接器时，使 BI 工具能够正确解析数据库模式。
 
 例如：
@@ -61,10 +61,10 @@ fbc958cc745a82188a51f30de69eebfc67c40ee4
 </profiles>
 ```
 
-或者将它分配给一个不同的配置文件，而不是使用默认的那个。
+或者将其分配给一个不同的配置文件，而不是使用默认的那个。
 
-如果你可以使用 `mysql` 可执行文件，可以在命令行中测试连接。
-使用上面示例中的用户名（`mysql_user`）和密码（`LZOQYnqQN4L/T6L0`），在命令行中执行的命令为：
+如果你有可用的 `mysql` 可执行文件，可以在命令行中测试连接。
+使用上面示例中的用户名（`mysql_user`）和密码（`LZOQYnqQN4L/T6L0`），命令行命令将是：
 
 ```bash
 mysql --protocol tcp -h localhost -u mysql_user -P 9004 --password=LZOQYnqQN4L/T6L0
