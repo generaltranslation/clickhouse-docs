@@ -1,4 +1,4 @@
-通过启用 `listen_host` 设置，可以在网络接口上开启对外通信。这样可以确保运行 ClickHouse 的服务器主机能够被其他主机访问：
+要在网络接口上启用对外通信，可以通过配置 `listen_host` 设置来实现。这样可以确保运行 ClickHouse 的服务器主机能够被其他主机访问：
 
 ```xml
 <listen_host>0.0.0.0</listen_host>
@@ -10,7 +10,7 @@ HTTP API 的端口被设置为 `8123`：
 <http_port>8123</http_port>
 ```
 
-用于通过 ClickHouse 原生协议在 `clickhouse-client` 与其他原生 ClickHouse 工具之间，以及在 `clickhouse-server` 与其他 `clickhouse-server` 之间进行交互的 TCP 端口为 `9000`：
+用于通过 ClickHouse 原生协议进行交互的 TCP 端口为 `9000`，适用于 `clickhouse-client` 与其他原生 ClickHouse 工具之间的通信，以及 `clickhouse-server` 与其他 `clickhouse-server` 实例之间的通信：
 
 ```xml
 <tcp_port>9000</tcp_port>
