@@ -2,21 +2,21 @@ import cloud_connect_button from '@site/static/images/_snippets/cloud-connect-bu
 import connection_details_https from '@site/static/images/_snippets/connection-details-https.png';
 import Image from '@theme/IdealImage';
 
-To connect to ClickHouse with HTTP(S) you need this information:
+要通过 HTTP(S) 连接到 ClickHouse，你需要以下信息：
 
-| Parameter(s)            | Description                                                                                                   |
-|-------------------------|---------------------------------------------------------------------------------------------------------------|
-|`HOST` and `PORT`        | Typically, the port is 8443 when using TLS or 8123 when not using TLS.                                        |
-|`DATABASE NAME`          | Out of the box, there is a database named `default`, use the name of the database that you want to connect to.|
-|`USERNAME` and `PASSWORD`| Out of the box, the username is `default`. Use the username appropriate for your use case.                    |
+| Parameter(s)              | Description                                |
+| ------------------------- | ------------------------------------------ |
+| `HOST` and `PORT`         | 通常，在使用 TLS 时端口为 8443，在不使用 TLS 时端口为 8123。   |
+| `DATABASE NAME`           | 开箱即用地提供了一个名为 `default` 的数据库，请使用你要连接的数据库名称。 |
+| `USERNAME` and `PASSWORD` | 开箱即用的用户名为 `default`。请使用适合你场景的用户名。          |
 
-The details for your ClickHouse Cloud service are available in the ClickHouse Cloud console.
-Select a service and click **Connect**:
+你的 ClickHouse Cloud 服务的详细信息可以在 ClickHouse Cloud 控制台中查看。
+选择一个服务并点击 **Connect**：
 
-<Image img={cloud_connect_button} size="md" alt="ClickHouse Cloud service connect button" border />
+<Image img={cloud_connect_button} size="md" alt="ClickHouse Cloud 服务连接按钮" border />
 
-Choose **HTTPS**. Connection details are displayed in an example `curl` command.
+选择 **HTTPS**。连接详情会显示在示例 `curl` 命令中。
 
-<Image img={connection_details_https} size="md" alt="ClickHouse Cloud HTTPS connection details" border/>
+<Image img={connection_details_https} size="md" alt="ClickHouse Cloud HTTPS 连接详情" border />
 
-If you are using self-managed ClickHouse, the connection details are set by your ClickHouse administrator.
+如果你使用的是自管 ClickHouse，则连接详情由你的 ClickHouse 管理员进行配置。

@@ -1,8 +1,8 @@
 :::note
-Although it is possible to run ClickHouse Server and ClickHouse Keeper combined on the same server,
-we strongly recommend using *dedicated* hosts for ClickHouse keeper in production environments,
-which is the approach we will demonstrate in this example.
+虽然可以在同一台服务器上同时运行 ClickHouse Server 和 ClickHouse Keeper，
+但我们强烈建议在生产环境中为 ClickHouse Keeper 使用 *专用* 主机，
+本示例中也将采用这种方式进行演示。
 
-Keeper servers can be smaller, and 4GB RAM is generally enough for each Keeper server
-until your ClickHouse Servers grow large.
+Keeper 服务器可以配置得较小，一般来说每个 Keeper 服务器配备 4GB 内存就足够，
+除非你的 ClickHouse Server 集群规模显著增大。
 :::

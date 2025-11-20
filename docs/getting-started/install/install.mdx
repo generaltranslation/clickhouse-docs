@@ -1,9 +1,9 @@
 ---
-description: 'Install ClickHouse'
+description: "安装 ClickHouse"
 keywords: ['clickhouse', 'install', 'getting started', 'quick start']
-sidebar_label: 'Install'
+sidebar_label: '安装'
 slug: /install
-title: 'Install ClickHouse'
+title: "安装 ClickHouse"
 doc_type: 'guide'
 ---
 
@@ -18,25 +18,25 @@ import Docker from './_snippets/_docker.md'
 import {CardPrimary} from '@clickhouse/click-ui/bundled';
 import {galaxyOnClick} from '@site/src/lib/galaxy/galaxy'
 
-# Installation instructions
+
+# 安装指南
 
 <CardPrimary
     alignContent="center"
-    description="Start building instantly without having to size and scale your cluster. We take care of sizing, scaling
-    , security, reliability and upgrades."
+    description="立即开始构建，而无需为集群容量和扩展操心。我们会为你处理容量规划、弹性伸缩、安全性、可靠性以及升级。"
     icon="cloud"
-    infoText="Get started free"
+    infoText="免费开始使用"
     infoUrl="https://console.clickhouse.cloud/signUp?loc=docs-install-page-banner"
     isSelected
     onButtonClick={galaxyOnClick('docs.installCloudCallout.buttonClicked')}
     size="md"
     title="ClickHouse Cloud"
-    topBadgeText="Recommended"
+    topBadgeText="推荐"
 />
+
 <br/>
 
-Alternatively, select a platform, distribution and install method below to view install
-instructions for Opensource ClickHouse:
+或者，在下方选择平台、发行版和安装方式，以查看开源版 ClickHouse 的安装说明：
 
 <InstallSelector
     windows={<Windows/>}
@@ -47,4 +47,3 @@ instructions for Opensource ClickHouse:
     macos_prod={<MacOSProd/>}
     docker={<Docker/>}
 />
-

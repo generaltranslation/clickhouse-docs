@@ -1,24 +1,15 @@
-- The `config.d` directory contains ClickHouse server configuration file `config.xml`,
-  in which custom configuration for each ClickHouse node is defined. This
-  configuration gets combined with the default `config.xml` ClickHouse configuration
-  file that comes with every ClickHouse installation.
-- The `users.d` directory contains user configuration file `users.xml`, in which
-  custom configuration for users is defined. This configuration gets combined with
-  the default ClickHouse `users.xml` configuration file that comes with every
-  ClickHouse installation.
+* `config.d` 目录中包含 ClickHouse 服务器配置文件 `config.xml`，用于为每个 ClickHouse 节点定义自定义配置。该配置会与每次安装 ClickHouse 时自带的默认配置文件 `config.xml` 合并。
+* `users.d` 目录中包含用户配置文件 `users.xml`，用于定义用户级的自定义配置。该配置会与每次安装 ClickHouse 时自带的默认 `users.xml` 配置文件合并。
 
-:::tip Custom configuration directories
-It is a best practice to make use of the `config.d` and `users.d` directories when
-writing your own configuration, rather than directly modifying the default configuration
-in `/etc/clickhouse-server/config.xml` and `etc/clickhouse-server/users.xml`.
+:::tip 自定义配置目录
+在编写自己的配置时，最佳实践是使用 `config.d` 和 `users.d` 目录，而不是直接修改
+`/etc/clickhouse-server/config.xml` 和 `/etc/clickhouse-server/users.xml` 中的默认配置。
 
-The line
+这行
 
 ```xml
 <clickhouse replace="true">
 ```
 
-Ensures that the configuration sections defined in the `config.d` and `users.d`
-directories override the default configuration sections defined in the default
-`config.xml` and `users.xml` files.
+确保在 `config.d` 和 `users.d` 目录中定义的配置节会覆盖默认 `config.xml` 和 `users.xml` 文件中定义的配置节。
 :::
