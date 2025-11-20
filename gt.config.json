@@ -43,7 +43,7 @@
         "output": "i18n/locales/[locale].json"
       }
     },
-    "locales": ["zh", "ru", "jp"],
+    "locales": ["en","zh", "ru", "jp"],
     "customMapping": {
       "jp": {
         "code": "ja"
